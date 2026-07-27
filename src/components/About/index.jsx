@@ -1,4 +1,5 @@
-import { Code2, Database } from 'lucide-react';
+import augustoImg from '../../assets/imgPerfil/augusto.jpeg';
+import nicolasImg from '../../assets/imgPerfil/nicolas-lima.jpeg';
 
 export default function About() {
     return (
@@ -27,7 +28,7 @@ export default function About() {
                             className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-primary/30 group">
                             <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.2)] border-2 border-noda-primary/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
                                 {/* Substitua o 'src' abaixo pela foto real do desenvolvedor */}
-                                <img src="./src/assets/imgPerfil/augusto.jpeg" alt="Augusto Bruno" className="w-full h-full object-cover" />
+                                <img src={augustoImg} alt="Augusto Bruno" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-1">Augusto Bruno</h4>
@@ -42,7 +43,7 @@ export default function About() {
                             className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-cyan/30 group">
                             <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.2)] border-2 border-noda-cyan/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
                                 {/* Substitua o 'src' abaixo pela foto real do desenvolvedor */}
-                                <img src="./src/assets/imgPerfil/nicolas-lima.jpeg" alt="Nicolas Lima" className="w-full h-full object-cover" />
+                                <img src={nicolasImg} alt="Nicolas Lima" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-1">Nicolas Lima</h4>

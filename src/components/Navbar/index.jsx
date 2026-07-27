@@ -69,7 +69,7 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
             {/*  Mobile Menu Dropdown (Balloon)  */}
             <div id="mobile-menu"
                 className={`lg:hidden absolute top-[85px] right-6 w-[280px] flex-col p-5 rounded-3xl bg-[#030712]/95 backdrop-blur-2xl border border-white/10 shadow-[0_20px_40px_rgba(0,0,0,0.6)] transition-all duration-300 origin-top-right flex ${isMobileMenuOpen ? 'scale-100 opacity-100 pointer-events-auto' : 'scale-95 opacity-0 pointer-events-none'}`}>
-                
+
                 <div className="flex flex-col space-y-4">
                     <span className="text-xs font-semibold text-noda-textMuted uppercase tracking-wider">Navegação</span>
                     <a href="#portfolio" onClick={toggleMobileMenu}
@@ -83,9 +83,9 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
                     <a href="#sobre" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Sobre</a>
                 </div>
-                
+
                 <hr className="border-white/10 my-5" />
-                
+
                 <div className="flex flex-col space-y-4">
                     <span className="text-xs font-semibold text-noda-textMuted uppercase tracking-wider">Ações</span>
                     <a href="#login" onClick={toggleMobileMenu}
