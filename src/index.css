@@ -1,0 +1,147 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+
+  --color-noda-base: #030712;
+  --color-noda-card: rgba(17, 24, 39, 0.4);
+  --color-noda-border: rgba(255, 255, 255, 0.08);
+  --color-noda-primary: #2563EB;
+  --color-noda-cyan: #06B6D4;
+  --color-noda-indigo: #4338CA;
+  --color-noda-textMuted: #94A3B8;
+
+  --background-image-gradient-radial: radial-gradient(var(--tw-gradient-stops));
+  --background-image-hero-glow: radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
+
+  --animate-blob: blob 7s infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-scroll-infinite: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 2rem)); }
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .5; }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--color-noda-base);
+    color: #FFFFFF;
+    overflow-x: hidden;
+    @apply antialiased selection:bg-noda-cyan/30 selection:text-white;
+}
+
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size: 50px 50px;
+    background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, black 20%, transparent 80%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+.glass {
+    background: rgba(17, 24, 39, 0.6);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: linear-gradient(180deg, rgba(30, 41, 59, 0.4) 0%, rgba(17, 24, 39, 0.4) 100%);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(6, 182, 212, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(6, 182, 212, 0.2);
+    transform: translateY(-2px);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+}
+
+.text-gradient {
+    background: linear-gradient(to right, #FFFFFF, #94A3B8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn-gradient-border {
+    position: relative;
+    background: #030712;
+    z-index: 1;
+}
+
+.btn-gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: linear-gradient(45deg, #2563EB, #06B6D4, #4338CA);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+}
+
+.btn-gradient-border:hover::before {
+    filter: blur(4px);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, opacity 0.4s ease-out;
+    opacity: 0;
+}
+
+.accordion-content.open {
+    max-height: 200px;
+    opacity: 1;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #030712;
+}
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
