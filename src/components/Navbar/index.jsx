@@ -1,4 +1,5 @@
 import { UserCircle, ArrowRight, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu, openContactModal }) {
     return (
@@ -43,11 +44,11 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
 
                 {/*  Actions Wrapper  */}
                 <div className="hidden lg:flex flex-shrink-0 items-center justify-end gap-6 z-10">
-                    <a href="#login"
+                    <Link to="/login"
                         className="flex items-center gap-2 text-sm font-medium text-noda-textMuted hover:text-white transition-colors group">
                         <UserCircle className="w-4 h-4 group-hover:text-noda-cyan transition-colors" />
                         Área do Parceiro
-                    </a>
+                    </Link>
                     <a href="#contato" onClick={openContactModal}
                         className="modal-trigger relative inline-flex h-10 items-center justify-center rounded-full bg-noda-base px-6 text-sm font-medium text-white shadow-sm btn-gradient-border overflow-hidden group">
                         <span className="relative z-10 flex items-center gap-2">
@@ -88,10 +89,10 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
 
                 <div className="flex flex-col space-y-4">
                     <span className="text-xs font-semibold text-noda-textMuted uppercase tracking-wider">Ações</span>
-                    <a href="#login" onClick={toggleMobileMenu}
+                    <Link to="/login" onClick={toggleMobileMenu}
                         className="flex items-center gap-2 text-white/80 hover:text-white text-base font-medium transition-colors">
                         <UserCircle className="w-5 h-5" /> Área do Parceiro
-                    </a>
+                    </Link>
                     <a href="#contato" onClick={(e) => { toggleMobileMenu(); openContactModal(e); }}
                         className="modal-trigger block w-full text-center py-3 mt-2 rounded-xl bg-gradient-to-r from-noda-primary to-noda-cyan text-white text-sm font-semibold transition-all hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]">
                         Entre em contato

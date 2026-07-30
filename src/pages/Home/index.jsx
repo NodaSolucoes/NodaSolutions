@@ -37,7 +37,7 @@ export default function Home() {
     const closeMobileMenu = () => setIsMobileMenuOpen(false);
 
     const openContactModal = (e) => {
-        if(e) e.preventDefault();
+        if (e) e.preventDefault();
         setIsModalOpen(true);
         closeMobileMenu();
     };
@@ -54,13 +54,13 @@ export default function Home() {
                 className="fixed top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-noda-cyan/10 blur-[100px] mix-blend-screen -z-10 pointer-events-none animate-blob animation-delay-2000">
             </div>
 
-            <Navbar 
-                isScrolled={isScrolled} 
-                isMobileMenuOpen={isMobileMenuOpen} 
-                toggleMobileMenu={toggleMobileMenu} 
-                openContactModal={openContactModal} 
+            <Navbar
+                isScrolled={isScrolled}
+                isMobileMenuOpen={isMobileMenuOpen}
+                toggleMobileMenu={toggleMobileMenu}
+                openContactModal={openContactModal}
             />
-            
+
             <Hero openContactModal={openContactModal} />
             <Services />
             <Process />
@@ -70,10 +70,10 @@ export default function Home() {
             <Portfolio />
             <Contact />
             <Footer />
-            
-            <ContactModal 
-                isModalOpen={isModalOpen} 
-                closeContactModal={closeContactModal} 
+
+            <ContactModal
+                isModalOpen={isModalOpen}
+                closeContactModal={closeContactModal}
             />
         </div>
     );
