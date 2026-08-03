@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Mail,
   Lock,
@@ -10,15 +10,22 @@ import {
   PlayCircle,
   LifeBuoy,
   Loader2,
-  CheckCircle2
+  CheckCircle2,
+  AlertCircle
 } from 'lucide-react';
 import ContactModal from '../../components/ContactModal';
+import { supabase } from '../../services/supabaseClient';
 
 export default function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const openContactModal = (e) => {
     if (e) e.preventDefault();
@@ -27,21 +34,69 @@ export default function Login() {
 
   const closeContactModal = () => setIsModalOpen(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsAuthenticating(true);
+    setErrorMsg('');
 
-    // Simulate API Call
-    setTimeout(() => {
+    try {
+      // 1. Autenticar usuário no Supabase Auth
+      const { data: authData, error: authError } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (authError) {
+        throw new Error('E-mail ou senha incorretos.');
+      }
+
+      const user = authData.user;
+
+      if (!user) {
+        throw new Error('Erro ao obter dados do usuário.');
+      }
+
+      // 2. Verificar se é Admin (Colaborador)
+      const { data: colaboradorData, error: colabError } = await supabase
+        .from('colaboradores')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('status', 'Ativo')
+        .single();
+
+      if (colaboradorData) {
+        // Encontrou colaborador ativo -> Redireciona para /admin
+        setIsSuccess(true);
+        setTimeout(() => navigate('/admin'), 1000);
+        return;
+      }
+
+      // 3. Verificar se é Cliente/Parceiro
+      const { data: clienteData, error: clienteError } = await supabase
+        .from('clientes')
+        .select('*')
+        .eq('user_id', user.id)
+        .eq('status', 'Ativo')
+        .single();
+
+      if (clienteData) {
+        // Encontrou cliente ativo -> Redireciona para /dashboard
+        setIsSuccess(true);
+        setTimeout(() => navigate('/dashboard'), 1000);
+        return;
+      }
+
+      // 4. Se não encontrar em nenhum dos dois ou não estiver ativo
+      throw new Error('Conta sem perfil ativo vinculado.');
+
+    } catch (err) {
+      console.error(err);
+      setErrorMsg(err.message || 'Ocorreu um erro ao tentar fazer login.');
+      // Se a autenticação passou mas falhou no perfil, desloga por segurança
+      await supabase.auth.signOut();
+    } finally {
       setIsAuthenticating(false);
-      setIsSuccess(true);
-
-      // Simulate redirect
-      setTimeout(() => {
-        setIsSuccess(false);
-        e.target.reset(); // Reset form
-      }, 1500);
-    }, 2000);
+    }
   };
 
   return (
@@ -95,6 +150,14 @@ export default function Login() {
               <p className="text-noda-textMuted">Bem-vindo de volta. Acesse para gerenciar seu ecossistema.</p>
             </div>
 
+            {/* Error Message */}
+            {errorMsg && (
+              <div className="mb-6 p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-start gap-3">
+                <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                <p className="text-sm text-red-200">{errorMsg}</p>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
@@ -108,6 +171,8 @@ export default function Login() {
                   <input
                     type="email"
                     id="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                     className="block w-full pl-11 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-noda-primary focus:ring-1 focus:ring-noda-primary transition-all"
                     placeholder="seu@email.com.br"
@@ -130,6 +195,8 @@ export default function Login() {
                   <input
                     type={showPassword ? 'text' : 'password'}
                     id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     required
                     className="block w-full pl-11 pr-12 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-noda-primary focus:ring-1 focus:ring-noda-primary transition-all"
                     placeholder="••••••••"
@@ -137,7 +204,7 @@ export default function Login() {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-white transition-colors focus:outline-none"
+                    className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-500 hover:text-white transition-colors focus:outline-none cursor-pointer"
                   >
                     {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                   </button>
@@ -161,7 +228,7 @@ export default function Login() {
               <button
                 type="submit"
                 disabled={isAuthenticating || isSuccess}
-                className={`w-full flex justify-center items-center gap-2 py-3.5 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white focus:outline-none transition-all ${isSuccess
+                className={`w-full flex justify-center items-center gap-2 py-3.5 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-white focus:outline-none transition-all cursor-pointer ${isSuccess
                   ? 'bg-green-500 border-green-500'
                   : 'bg-gradient-to-r from-noda-primary to-noda-cyan hover:shadow-[0_0_20px_rgba(37,99,235,0.4)]'
                   }`}
