@@ -1,5 +1,6 @@
 import augustoImg from '../../assets/imgPerfil/augusto.jpeg';
 import nicolasImg from '../../assets/imgPerfil/nicolas-lima.jpeg';
+import willyamImg from '../../assets/imgPerfil/willyam.jpeg';
 
 export default function About() {
     return (
@@ -50,6 +51,18 @@ export default function About() {
                                 <p className="text-sm text-noda-cyan font-medium mb-3">Desenvolvedor Web Full-Stack</p>
                                 <p className="text-sm text-noda-textMuted leading-relaxed">O cérebro por trás da operação. Focado em arquitetura
                                     de dados sólida, integração nativa com IA e máxima segurança em serviços de API.</p>
+                            </div>
+                        </div>
+
+                        <div data-aos="fade-up" data-aos-delay="300"
+                            className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-primary/30 group">
+                            <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.2)] border-2 border-noda-primary/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
+                                <img src={willyamImg} alt="Willyam Souza" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <h4 className="text-xl font-bold text-white mb-1">Willyam Souza</h4>
+                                <p className="text-sm text-noda-primary font-medium mb-3">Desenvolvedor Java e Web Full-Stack</p>
+                                <p className="text-sm text-noda-textMuted leading-relaxed">Especialista em construir ecossistemas robustos e escaláveis. Focado no desenvolvimento ponta a ponta com alta performance, segurança e domínio em tecnologias Java e Web.</p>
                             </div>
                         </div>
                     </div>
