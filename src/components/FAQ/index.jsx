@@ -20,12 +20,17 @@ export default function FAQ() {
                     {/*  FAQ Item 1  */}
                     <div data-aos="fade-up" data-aos-delay="100"
                         className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button onClick={() => toggleFaq(0)} className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
+                        <button 
+                            id="faq-question-0"
+                            aria-expanded={openFaqIndex === 0}
+                            aria-controls="faq-answer-0"
+                            onClick={() => toggleFaq(0)} 
+                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
                             <span className="font-semibold text-white">Como funciona o tempo de desenvolvimento sob
                                 medida?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 0 ? '-rotate-180' : ''}`} />
+                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 0 ? '-rotate-180' : ''}`} aria-hidden="true" />
                         </button>
-                        <div className={`accordion-content bg-white/5 ${openFaqIndex === 0 ? 'open' : ''}`}>
+                        <div id="faq-answer-0" role="region" aria-labelledby="faq-question-0" className={`accordion-content bg-white/5 ${openFaqIndex === 0 ? 'open' : ''}`}>
                             <div className="p-5 pt-4 text-sm text-noda-textMuted">
                                 O prazo varia conforme a complexidade. Projetos MVP (Mínimo Produto Viável) geralmente levam
                                 de 4 a 8 semanas, garantindo que você tenha um produto funcional rapidamente para testar no
@@ -37,12 +42,17 @@ export default function FAQ() {
                     {/*  FAQ Item 2  */}
                     <div data-aos="fade-up" data-aos-delay="200"
                         className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button onClick={() => toggleFaq(1)} className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
+                        <button 
+                            id="faq-question-1"
+                            aria-expanded={openFaqIndex === 1}
+                            aria-controls="faq-answer-1"
+                            onClick={() => toggleFaq(1)} 
+                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
                             <span className="font-semibold text-white">O StudioHub pode ser integrado ao meu sistema
                                 atual?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 1 ? '-rotate-180' : ''}`} />
+                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 1 ? '-rotate-180' : ''}`} aria-hidden="true" />
                         </button>
-                        <div className={`accordion-content bg-white/5 ${openFaqIndex === 1 ? 'open' : ''}`}>
+                        <div id="faq-answer-1" role="region" aria-labelledby="faq-question-1" className={`accordion-content bg-white/5 ${openFaqIndex === 1 ? 'open' : ''}`}>
                             <div className="p-5 pt-4 text-sm text-noda-textMuted">
                                 Sim. O StudioHub possui APIs nativas e Webhooks que permitem a comunicação com diversas
                                 plataformas modernas de CRM e agenda, além de sua integração perfeita com o EasyWallet.
@@ -53,11 +63,16 @@ export default function FAQ() {
                     {/*  FAQ Item 3  */}
                     <div data-aos="fade-up" data-aos-delay="300"
                         className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button onClick={() => toggleFaq(2)} className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
+                        <button 
+                            id="faq-question-2"
+                            aria-expanded={openFaqIndex === 2}
+                            aria-controls="faq-answer-2"
+                            onClick={() => toggleFaq(2)} 
+                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
                             <span className="font-semibold text-white">Por que vocês não integram com ERPs legados?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 2 ? '-rotate-180' : ''}`} />
+                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 2 ? '-rotate-180' : ''}`} aria-hidden="true" />
                         </button>
-                        <div className={`accordion-content bg-white/5 ${openFaqIndex === 2 ? 'open' : ''}`}>
+                        <div id="faq-answer-2" role="region" aria-labelledby="faq-question-2" className={`accordion-content bg-white/5 ${openFaqIndex === 2 ? 'open' : ''}`}>
                             <div className="p-5 pt-4 text-sm text-noda-textMuted">
                                 Sistemas antigos frequentemente possuem arquiteturas fechadas, baixa documentação e
                                 tecnologias defasadas (como SOAP). Isso atrasa o desenvolvimento e compromete a performance.

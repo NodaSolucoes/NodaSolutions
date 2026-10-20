@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 
 export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu, openContactModal }) {
     return (
-        <nav className={`fixed top-0 w-full z-50 border-b border-white/5 transition-colors duration-300 ${isScrolled ? 'shadow-lg bg-noda-base/95 backdrop-blur-xl' : 'bg-noda-base/40 backdrop-blur-md'}`} id="navbar">
+        <nav aria-label="Navegação Principal" className={`fixed top-0 w-full z-50 border-b border-white/5 transition-colors duration-300 ${isScrolled ? 'shadow-lg bg-noda-base/95 backdrop-blur-xl' : 'bg-noda-base/40 backdrop-blur-md'}`} id="navbar">
             <div className="w-full max-w-7xl mx-auto px-6 h-20 flex items-center justify-between relative">
                 {/*  Logo Wrapper  */}
                 <div className="flex-shrink-0 flex items-center justify-start z-10">
-                    <a href="#" className="flex items-center gap-3 group">
+                    <a href="/" aria-label="Noda Solutions - Página Inicial" className="flex items-center gap-3 group">
                         <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            className="shrink-0">
+                            className="shrink-0" aria-hidden="true">
                             <defs>
                                 <linearGradient id="boltGradient" x1="6" y1="2" x2="26" y2="30" gradientUnits="userSpaceOnUse">
                                     <stop offset="0%" stopColor="#06B6D4" />
@@ -60,7 +60,7 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
 
                 {/* Mobile Toggle */}
                 <div className="lg:hidden flex-shrink-0 flex justify-end z-10">
-                    <button id="mobile-menu-btn" onClick={toggleMobileMenu} className="relative w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-noda-textMuted hover:text-white hover:bg-white/10 focus:outline-none transition-all">
+                    <button id="mobile-menu-btn" onClick={toggleMobileMenu} aria-label={isMobileMenuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={isMobileMenuOpen} className="relative w-10 h-10 flex items-center justify-center rounded-full border border-white/10 bg-white/5 text-noda-textMuted hover:text-white hover:bg-white/10 focus:outline-none transition-all">
                         <Menu className={`absolute w-6 h-6 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0 scale-75 rotate-90' : 'opacity-100 scale-100 rotate-0'}`} />
                         <X className={`absolute w-6 h-6 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 -rotate-90'}`} />
                     </button>

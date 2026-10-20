@@ -1,4 +1,4 @@
-import { LayoutDashboard, Smartphone, ShieldCheck, Info } from 'lucide-react';
+import { LayoutDashboard, Smartphone, ShieldCheck } from 'lucide-react';
 
 export default function Services() {
     return (

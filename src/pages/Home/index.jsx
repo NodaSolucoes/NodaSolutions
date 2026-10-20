@@ -19,6 +19,7 @@ export default function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     useEffect(() => {
+        document.title = "Noda Solutions | Desenvolvimento de Software Sob Medida e IA";
         AOS.init({
             duration: 800,
             once: true,

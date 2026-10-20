@@ -26,10 +26,15 @@ export default function About() {
 
                     <div className="space-y-6">
                         <div data-aos="fade-up" data-aos-delay="100"
+                            itemScope itemType="https://schema.org/Person"
                             className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-primary/30 group">
+                            <meta itemProp="name" content="Augusto Bruno Menezes Silva" />
+                            <meta itemProp="alternateName" content="Augusto Bruno" />
+                            <meta itemProp="jobTitle" content="Co-Fundador & Desenvolvedor Web Full-Stack" />
+                            <link itemProp="worksFor" href="https://www.nodasolucoes.dev/" />
+                            <link itemProp="url" href="https://www.nodasolucoes.dev/" />
                             <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.2)] border-2 border-noda-primary/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
-                                {/* Substitua o 'src' abaixo pela foto real do desenvolvedor */}
-                                <img src={augustoImg} alt="Augusto Bruno" className="w-full h-full object-cover" />
+                                <img src={augustoImg} alt="Augusto Bruno Menezes Silva (Augusto Bruno) - Desenvolvedor Web Full-Stack e UI/UX Designer na Noda Solutions" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-1">Augusto Bruno</h4>
@@ -41,14 +46,19 @@ export default function About() {
                         </div>
 
                         <div data-aos="fade-up" data-aos-delay="200"
+                            itemScope itemType="https://schema.org/Person"
                             className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-cyan/30 group">
+                            <meta itemProp="name" content="Nicolas Lima da Silva" />
+                            <meta itemProp="alternateName" content="Nicolas Lima" />
+                            <meta itemProp="jobTitle" content="Co-Fundador & Desenvolvedor Web Full-Stack" />
+                            <link itemProp="worksFor" href="https://www.nodasolucoes.dev/" />
+                            <link itemProp="url" href="https://www.nodasolucoes.dev/" />
                             <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(6,182,212,0.2)] border-2 border-noda-cyan/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
-                                {/* Substitua o 'src' abaixo pela foto real do desenvolvedor */}
-                                <img src={nicolasImg} alt="Nicolas Lima" className="w-full h-full object-cover" />
+                                <img src={nicolasImg} alt="Nicolas Lima da Silva (Nicolas Lima) - Desenvolvedor Web Full-Stack e Especialista em IA na Noda Solutions" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-1">Nicolas Lima</h4>
-                                <p className="text-sm text-noda-cyan font-medium mb-3">Desenvolvedor Web Full-Stack</p>
+                                <p className="text-sm text-noda-cyan font-medium mb-3">Desenvolvedor Web Full-Stack &amp; Arquiteto IA</p>
                                 <p className="text-sm text-noda-textMuted leading-relaxed">O cérebro por trás da operação. Focado em arquitetura
                                     de dados sólida, integração nativa com IA e máxima segurança em serviços de API.</p>
                             </div>
@@ -57,7 +67,7 @@ export default function About() {
                         <div data-aos="fade-up" data-aos-delay="300"
                             className="glass-card p-6 rounded-2xl flex flex-col sm:flex-row items-start gap-5 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-noda-primary/30 group">
                             <div className="w-20 h-20 rounded-full shrink-0 shadow-[0_0_15px_rgba(37,99,235,0.2)] border-2 border-noda-primary/40 overflow-hidden bg-noda-base group-hover:scale-105 transition-transform duration-300">
-                                <img src={willyamImg} alt="Willyam Souza" className="w-full h-full object-cover" />
+                                <img src={willyamImg} alt="Willyam Souza - Desenvolvedor Java e Web Full-Stack na Noda Solutions" width="80" height="80" loading="lazy" decoding="async" className="w-full h-full object-cover" />
                             </div>
                             <div>
                                 <h4 className="text-xl font-bold text-white mb-1">Willyam Souza</h4>

@@ -35,11 +35,13 @@ export default function Hero({ openContactModal }) {
                 {/*  CTAs  */}
                 <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row items-center gap-4 mb-10">
                     <a href="#produtos"
+                        aria-label="Conhecer nossos produtos de software e inteligência artificial"
                         className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-noda-primary to-noda-cyan text-white font-semibold hover:shadow-[0_0_30px_rgba(6,182,212,0.4)] transition-all group">
                         Conhecer Nossos Produtos
-                        <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
+                        <ArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" aria-hidden="true" />
                     </a>
                     <a href="#contato" onClick={openContactModal}
+                        aria-label="Entrar em contato para projetos de software sob medida"
                         className="modal-trigger w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 rounded-full border border-white/20 bg-white/5 text-white font-medium hover:bg-white/10 hover:border-noda-cyan/50 transition-all">
                         Entre em contato
                     </a>

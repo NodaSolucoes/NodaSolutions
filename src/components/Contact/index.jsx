@@ -101,7 +101,8 @@ export default function Contact() {
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1.5">Nome
                                     completo</label>
-                                <input type="text" id="name" required
+                                <input type="text" id="name" name="name" required
+                                    autoComplete="name"
                                     value={name}
                                     onChange={(e) => setName(sanitizeInput(e.target.value))}
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-noda-primary focus:ring-1 focus:ring-noda-primary transition-all"
@@ -115,6 +116,7 @@ export default function Contact() {
                                         value={countryCode}
                                         onChange={(e) => setCountryCode(e.target.value)}
                                         className="bg-transparent text-white px-3 py-3 outline-none border-r border-white/10 cursor-pointer hover:bg-white/5"
+                                        aria-label="Código do país"
                                     >
                                         <option value="+55" className="bg-[#0f172a]">🇧🇷 +55</option>
                                         <option value="+1" className="bg-[#0f172a]">🇺🇸 +1</option>
@@ -127,7 +129,9 @@ export default function Contact() {
                                         <option value="+61" className="bg-[#0f172a]">🇦🇺 +61</option>
                                         <option value="+81" className="bg-[#0f172a]">🇯🇵 +81</option>
                                     </select>
-                                    <input type="tel" id="whatsapp" required
+                                    <input type="tel" id="whatsapp" name="tel" required
+                                        autoComplete="tel"
+                                        inputMode="tel"
                                         value={phone}
                                         onChange={handlePhoneChange}
                                         className="w-full bg-transparent px-4 py-3 text-white placeholder-gray-500 focus:outline-none"
@@ -137,7 +141,7 @@ export default function Contact() {
                             <div>
                                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1.5">Como podemos
                                     ajudar?</label>
-                                <textarea id="message" required rows="4"
+                                <textarea id="message" name="message" required rows="4"
                                     value={message}
                                     onChange={(e) => setMessage(sanitizeInput(e.target.value))}
                                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-noda-primary focus:ring-1 focus:ring-noda-primary transition-all resize-none"

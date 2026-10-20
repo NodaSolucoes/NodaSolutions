@@ -27,7 +27,7 @@ export default function Process() {
                         <div className="w-14 h-14 rounded-full bg-noda-primary/10 flex items-center justify-center mb-6 mt-2 transition-all duration-500 group-hover:scale-110 group-hover:bg-noda-cyan/20">
                             <Search className="w-6 h-6 text-noda-cyan transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
                         </div>
-                        <h4 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Imersão e Descoberta</h4>
+                        <h3 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Imersão e Descoberta</h3>
                         <p className="text-sm text-noda-textMuted leading-relaxed transition-colors duration-500 group-hover:text-gray-300">Mergulhamos no seu negócio para entender
                             dores, objetivos e oportunidades. Definimos o escopo e a melhor estratégia técnica.</p>
                     </div>
@@ -40,7 +40,7 @@ export default function Process() {
                         <div className="w-14 h-14 rounded-full bg-noda-primary/10 flex items-center justify-center mb-6 mt-2 transition-all duration-500 group-hover:scale-110 group-hover:bg-noda-cyan/20">
                             <Lightbulb className="w-6 h-6 text-noda-cyan transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6" />
                         </div>
-                        <h4 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Design e Prototipação</h4>
+                        <h3 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Design e Prototipação</h3>
                         <p className="text-sm text-noda-textMuted leading-relaxed transition-colors duration-500 group-hover:text-gray-300">Criamos a experiência visual e funcional
                             (UI/UX). Você valida o visual e o fluxo antes de escrevermos uma linha de código.</p>
                     </div>
@@ -53,7 +53,7 @@ export default function Process() {
                         <div className="w-14 h-14 rounded-full bg-noda-primary/10 flex items-center justify-center mb-6 mt-2 transition-all duration-500 group-hover:scale-110 group-hover:bg-noda-primary/20">
                             <Code2 className="w-6 h-6 text-noda-primary transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6" />
                         </div>
-                        <h4 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-primary">Desenvolvimento Ágil</h4>
+                        <h3 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-primary">Desenvolvimento Ágil</h3>
                         <p className="text-sm text-noda-textMuted leading-relaxed transition-colors duration-500 group-hover:text-gray-300">Nossa equipe constrói a solução usando as
                             melhores tecnologias (Next.js, React, Node). Entregas parciais para você acompanhar a evolução.
                         </p>
@@ -67,7 +67,7 @@ export default function Process() {
                         <div className="w-14 h-14 rounded-full bg-noda-primary/10 flex items-center justify-center mb-6 mt-2 transition-all duration-500 group-hover:scale-110 group-hover:bg-noda-cyan/20">
                             <Rocket className="w-6 h-6 text-noda-cyan transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12 group-hover:-translate-y-1 group-hover:translate-x-1" />
                         </div>
-                        <h4 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Lançamento e Evolução</h4>
+                        <h3 className="text-lg font-bold text-white mb-3 transition-colors duration-500 group-hover:text-noda-cyan">Lançamento e Evolução</h3>
                         <p className="text-sm text-noda-textMuted leading-relaxed transition-colors duration-500 group-hover:text-gray-300">Colocamos o projeto no ar com segurança.
                             Monitoramos a performance e continuamos evoluindo o produto com base em dados.</p>
                     </div>

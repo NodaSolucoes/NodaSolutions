@@ -29,7 +29,11 @@ const PortfolioCard = ({ href, src, alt, imgClassName }) => {
         >
             <img 
                 src={src} 
-                alt={alt}
+                alt={`Cliente e parceiro ${alt} atendido pela Noda Solutions`}
+                width="140"
+                height="48"
+                loading="lazy"
+                decoding="async"
                 className={`w-full h-full object-contain transition-all duration-300 ${imgClassName} ${
                     isClicked ? 'grayscale-0 scale-110' : 'grayscale group-hover:grayscale-0'
                 }`}
