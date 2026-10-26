@@ -74,17 +74,17 @@ export default function Products() {
                                 <li className="flex items-start gap-3">
                                     <CheckCircle2 className="w-5 h-5 text-noda-cyan shrink-0 mt-0.5" />
                                     <span className="text-sm text-gray-300"><strong className="text-white">Conciliação Bancária
-                                            IA:</strong> Leitura de OFX/PDF sem digitação manual.</span>
+                                        IA:</strong> Leitura de OFX/PDF sem digitação manual.</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle2 className="w-5 h-5 text-noda-cyan shrink-0 mt-0.5" />
                                     <span className="text-sm text-gray-300"><strong className="text-white">Indicadores
-                                            Estratégicos:</strong> Margem de Contribuição, Break-Even e Forecasting.</span>
+                                        Estratégicos:</strong> Margem de Contribuição, Break-Even e Forecasting.</span>
                                 </li>
                                 <li className="flex items-start gap-3">
                                     <CheckCircle2 className="w-5 h-5 text-noda-cyan shrink-0 mt-0.5" />
                                     <span className="text-sm text-gray-300"><strong className="text-white">Arquitetura
-                                            Escalonável:</strong> Integrações API e emissão de NFS-e.</span>
+                                        Escalonável:</strong> Integrações API e emissão de NFS-e.</span>
                                 </li>
                             </ul>
                         </div>
@@ -122,7 +122,7 @@ export default function Products() {
                 </div>
             </section>
 
-            <section className="py-16 relative overflow-hidden">
+            {/* <section className="py-16 relative overflow-hidden">
                 <div className="max-w-7xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
                     <div data-aos="fade-up" className="relative w-full max-w-5xl mx-auto animate-float">
                         <div
@@ -216,7 +216,7 @@ export default function Products() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </>
     );
 }

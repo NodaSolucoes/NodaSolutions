@@ -35,11 +35,11 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
 
                 {/*  Desktop Links (Center)  */}
                 <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-8 text-sm font-medium text-noda-textMuted">
-                    <a href="#portfolio" className="hover:text-white transition-colors">Portfólio</a>
                     <a href="#servicos" className="hover:text-white transition-colors">Software</a>
                     <a href="#processo" className="hover:text-white transition-colors">Processo</a>
                     <a href="#produtos" className="hover:text-white transition-colors">Produtos</a>
                     <a href="#sobre" className="hover:text-white transition-colors">Sobre</a>
+                    <a href="#portfolio" className="hover:text-white transition-colors">Portfólio</a>
                 </div>
 
                 {/*  Actions Wrapper  */}
@@ -73,16 +73,16 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
 
                 <div className="flex flex-col space-y-4">
                     <span className="text-xs font-semibold text-noda-textMuted uppercase tracking-wider">Navegação</span>
-                    <a href="#portfolio" onClick={toggleMobileMenu}
-                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Portfólio</a>
                     <a href="#servicos" onClick={toggleMobileMenu}
-                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Desenvolvimento</a>
+                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Software</a>
                     <a href="#processo" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Processo</a>
                     <a href="#produtos" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Produtos</a>
                     <a href="#sobre" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Sobre</a>
+                    <a href="#portfolio" onClick={toggleMobileMenu}
+                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Portfólio</a>
                 </div>
 
                 <hr className="border-white/10 my-5" />
