@@ -37,7 +37,7 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
                 <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-8 text-sm font-medium text-noda-textMuted">
                     <a href="#servicos" className="hover:text-white transition-colors">Software</a>
                     <a href="#processo" className="hover:text-white transition-colors">Processo</a>
-                    <a href="#produtos" className="hover:text-white transition-colors">Produtos</a>
+                    <a href="#especialidades" className="hover:text-white transition-colors">Especialidades</a>
                     <a href="#sobre" className="hover:text-white transition-colors">Sobre</a>
                     <a href="#portfolio" className="hover:text-white transition-colors">Portfólio</a>
                 </div>
@@ -77,8 +77,8 @@ export default function Navbar({ isScrolled, isMobileMenuOpen, toggleMobileMenu,
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Software</a>
                     <a href="#processo" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Processo</a>
-                    <a href="#produtos" onClick={toggleMobileMenu}
-                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Produtos</a>
+                    <a href="#especialidades" onClick={toggleMobileMenu}
+                        className="block text-white/80 hover:text-white text-base font-medium transition-colors">Especialidades</a>
                     <a href="#sobre" onClick={toggleMobileMenu}
                         className="block text-white/80 hover:text-white text-base font-medium transition-colors">Sobre</a>
                     <a href="#portfolio" onClick={toggleMobileMenu}

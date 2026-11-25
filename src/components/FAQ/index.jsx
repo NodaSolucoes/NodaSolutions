@@ -1,86 +1,128 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
+const FAQ_ITEMS = [
+    {
+        question: 'Quanto tempo leva para desenvolver um projeto e como acompanho o andamento?',
+        answer:
+            'O prazo depende do escopo: sites profissionais e cardápios digitais costumam ser entregues entre 1 e 3 semanas, enquanto sistemas sob medida para empresas ou clínicas levam de 4 a 10 semanas. Você não fica no escuro em nenhuma etapa — disponibilizamos acesso exclusivo à nossa Área do Parceiro, onde você acompanha o progresso em tempo real, valida entregas e visualiza o cronograma.',
+    },
+    {
+        question: 'O código e o sistema serão 100% meus ou fico preso a mensalidades?',
+        answer:
+            'O projeto é 100% propriedade da sua empresa após a quitação. Diferente de plataformas engessadas que cobram taxas sobre suas vendas ou alugam o sistema para sempre, na Noda entregamos o código-fonte e a estrutura configurada em seu nome. Você arca apenas com os custos básicos de hospedagem e domínio diretamente nos provedores oficiais.',
+    },
+    {
+        question: 'Preciso ter todo o projeto desenhado tecnicamente antes de entrar em contato?',
+        answer:
+            'Não. Nosso trabalho começa exatamente na etapa de Discovery e Diagnóstico. Você nos apresenta o problema operacional da sua empresa, clínica ou restaurante, e nossa equipe de engenharia mapeia os fluxos, desenha as telas e estrutura a solução técnica ideal antes de escrever a primeira linha de código.',
+    },
+    {
+        question: 'Vocês integram o sistema com WhatsApp, meios de pagamento ou ferramentas que já uso?',
+        answer:
+            'Sim. Desenvolvemos arquiteturas modernas preparadas para conversar com as principais ferramentas do mercado via API — incluindo automações de atendimento no WhatsApp, gateways de pagamento (Pix e cartão), emissão de notas fiscais e bancos de dados já existentes na sua operação.',
+    },
+    {
+        question: 'Como funciona o suporte e a evolução do sistema após a entrega?',
+        answer:
+            'Todo projeto entregue conta com um período de garantia técnica gratuita para ajustes e estabilidade. Após o lançamento, caso sua empresa cresça e precise de novas funcionalidades, melhorias contínuas ou acompanhamento mensal de infraestrutura, oferecemos planos flexíveis de sustentação sob demanda.',
+    },
+    {
+        question: 'Os sistemas seguem as normas de segurança e a LGPD (especialmente para clínicas)?',
+        answer:
+            'Sim. Aplicamos boas práticas de engenharia de software desde a base do banco de dados, incluindo criptografia, controle rigoroso de permissões por nível de acesso (administrador, recepção, especialista) e rastreabilidade de ações, garantindo conformidade com a LGPD e proteção total para dados sensíveis e prontuários.',
+    },
+];
+
 export default function FAQ() {
-    const [openFaqIndex, setOpenFaqIndex] = useState(null);
+    const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
     const toggleFaq = (index) => {
-        setOpenFaqIndex(openFaqIndex === index ? null : index);
+        setOpenFaqIndex((prevIndex) => (prevIndex === index ? null : index));
     };
 
     return (
-        <section className="py-24 border-t border-white/5">
+        <section id="faq" aria-labelledby="faq-heading" className="py-24 border-t border-white/5 relative">
             <div className="max-w-3xl mx-auto px-6">
                 <div data-aos="fade-up" className="text-center mb-12">
-                    <h2 className="text-3xl font-bold mb-4">Perguntas Frequentes</h2>
-                    <p className="text-noda-textMuted">Tudo o que você precisa saber sobre como trabalhamos.</p>
+                    <h2 id="faq-heading" className="text-3xl md:text-4xl font-bold mb-4 text-white">
+                        Perguntas Frequentes
+                    </h2>
+                    <p className="text-noda-textMuted text-base md:text-lg">
+                        Tudo o que você precisa saber sobre como trabalhamos.
+                    </p>
                 </div>
 
                 <div className="space-y-4" id="faq-container">
-                    {/*  FAQ Item 1  */}
-                    <div data-aos="fade-up" data-aos-delay="100"
-                        className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button 
-                            id="faq-question-0"
-                            aria-expanded={openFaqIndex === 0}
-                            aria-controls="faq-answer-0"
-                            onClick={() => toggleFaq(0)} 
-                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
-                            <span className="font-semibold text-white">Como funciona o tempo de desenvolvimento sob
-                                medida?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 0 ? '-rotate-180' : ''}`} aria-hidden="true" />
-                        </button>
-                        <div id="faq-answer-0" role="region" aria-labelledby="faq-question-0" className={`accordion-content bg-white/5 ${openFaqIndex === 0 ? 'open' : ''}`}>
-                            <div className="p-5 pt-4 text-sm text-noda-textMuted">
-                                O prazo varia conforme a complexidade. Projetos MVP (Mínimo Produto Viável) geralmente levam
-                                de 4 a 8 semanas, garantindo que você tenha um produto funcional rapidamente para testar no
-                                mercado.
-                            </div>
-                        </div>
-                    </div>
+                    {FAQ_ITEMS.map((item, index) => {
+                        const isOpen = openFaqIndex === index;
+                        const questionId = `faq-question-${index}`;
+                        const answerId = `faq-answer-${index}`;
 
-                    {/*  FAQ Item 2  */}
-                    <div data-aos="fade-up" data-aos-delay="200"
-                        className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button 
-                            id="faq-question-1"
-                            aria-expanded={openFaqIndex === 1}
-                            aria-controls="faq-answer-1"
-                            onClick={() => toggleFaq(1)} 
-                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
-                            <span className="font-semibold text-white">O StudioHub pode ser integrado ao meu sistema
-                                atual?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 1 ? '-rotate-180' : ''}`} aria-hidden="true" />
-                        </button>
-                        <div id="faq-answer-1" role="region" aria-labelledby="faq-question-1" className={`accordion-content bg-white/5 ${openFaqIndex === 1 ? 'open' : ''}`}>
-                            <div className="p-5 pt-4 text-sm text-noda-textMuted">
-                                Sim. O StudioHub possui APIs nativas e Webhooks que permitem a comunicação com diversas
-                                plataformas modernas de CRM e agenda, além de sua integração perfeita com o EasyWallet.
-                            </div>
-                        </div>
-                    </div>
+                        return (
+                            <div
+                                key={questionId}
+                                data-aos="fade-up"
+                                data-aos-delay={Math.min((index + 1) * 75, 400)}
+                            >
+                                <div
+                                    className={`rounded-2xl backdrop-blur-md border overflow-hidden transition-[background-color,border-color,box-shadow] duration-300 motion-reduce:transition-none ${
+                                        isOpen
+                                            ? 'bg-slate-900/60 border-noda-cyan/40 shadow-[0_8px_30px_-10px_rgba(6,182,212,0.22)]'
+                                            : 'bg-slate-900/40 border-white/10 hover:border-noda-primary/40'
+                                    }`}
+                                >
+                                    <h3 className="m-0">
+                                        <button
+                                            type="button"
+                                            id={questionId}
+                                            aria-expanded={isOpen}
+                                            aria-controls={answerId}
+                                            onClick={() => toggleFaq(index)}
+                                            className="w-full flex items-center justify-between gap-4 p-5 sm:p-6 text-left cursor-pointer group focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-noda-cyan"
+                                        >
+                                            <span
+                                                className={`font-semibold text-base sm:text-lg leading-snug transition-colors duration-200 ${
+                                                    isOpen ? 'text-white' : 'text-gray-200 group-hover:text-white'
+                                                }`}
+                                            >
+                                                {item.question}
+                                            </span>
+                                            <span
+                                                className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-all duration-300 motion-reduce:transition-none ${
+                                                    isOpen
+                                                        ? 'bg-noda-cyan/15 border-noda-cyan/40 text-noda-cyan'
+                                                        : 'bg-white/5 border-white/10 text-noda-textMuted group-hover:text-white group-hover:border-white/20'
+                                                }`}
+                                                aria-hidden="true"
+                                            >
+                                                <ChevronDown
+                                                    className={`w-4 h-4 transition-transform duration-300 motion-reduce:transition-none ${
+                                                        isOpen ? 'rotate-180' : 'rotate-0'
+                                                    }`}
+                                                />
+                                            </span>
+                                        </button>
+                                    </h3>
 
-                    {/*  FAQ Item 3  */}
-                    <div data-aos="fade-up" data-aos-delay="300"
-                        className="glass-card rounded-xl border border-white/10 overflow-hidden">
-                        <button 
-                            id="faq-question-2"
-                            aria-expanded={openFaqIndex === 2}
-                            aria-controls="faq-answer-2"
-                            onClick={() => toggleFaq(2)} 
-                            className="w-full flex items-center justify-between p-5 text-left focus:outline-none faq-btn">
-                            <span className="font-semibold text-white">Por que vocês não integram com ERPs legados?</span>
-                            <ChevronDown className={`w-5 h-5 text-noda-textMuted transition-transform duration-300 transform ${openFaqIndex === 2 ? '-rotate-180' : ''}`} aria-hidden="true" />
-                        </button>
-                        <div id="faq-answer-2" role="region" aria-labelledby="faq-question-2" className={`accordion-content bg-white/5 ${openFaqIndex === 2 ? 'open' : ''}`}>
-                            <div className="p-5 pt-4 text-sm text-noda-textMuted">
-                                Sistemas antigos frequentemente possuem arquiteturas fechadas, baixa documentação e
-                                tecnologias defasadas (como SOAP). Isso atrasa o desenvolvimento e compromete a performance.
-                                Preferimos focar em ecossistemas modernos (REST, GraphQL) para entregar velocidade e
-                                qualidade excepcionais.
+                                    <div
+                                        id={answerId}
+                                        aria-labelledby={questionId}
+                                        inert={!isOpen || undefined}
+                                        className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out motion-reduce:transition-none ${
+                                            isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                                        }`}
+                                    >
+                                        <div className="overflow-hidden">
+                                            <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-3 border-t border-white/5 bg-white/[0.02] text-sm sm:text-base text-noda-textMuted leading-relaxed">
+                                                {item.answer}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

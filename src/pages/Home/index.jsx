@@ -65,7 +65,7 @@ export default function Home() {
             <Hero openContactModal={openContactModal} />
             <Services />
             <Process />
-            <Products />
+            <Products openContactModal={openContactModal} />
             <About />
             <FAQ />
             <Portfolio />
